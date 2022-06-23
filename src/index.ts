@@ -13,7 +13,7 @@ app.use(routes); // Use routes
 // Run server
 app.listen(port, () => {
   // Check the thumbnails dir
-  const thumbdir = path.resolve(__dirname, '../assets/org/');
+  const thumbdir = path.resolve(__dirname, '../assets/tn/');
   if (!fs.existsSync(thumbdir)) {
     fs.mkdirSync(thumbdir);
   }
