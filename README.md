@@ -12,10 +12,10 @@ First of all i'd like to thank you to let me be in this place.
 * you need to run the command `npm run start:prod` to start the live server.
 
 [HOW TO USE]
--> you can use the UI at http://localhost:3000 and then go to the Image's to choose which image you need to change it size.
+* -> you can use the UI at http://localhost:3000 and then go to the Image's to choose which image you need to change it size.
 OR
--> you can find the Images list using GET `/api/imgs` as a JSON result
--> you can start the image processing API using GET `/api/img?n=[ImageName]&w=[width]&h=[height]`
+* -> you can find the Images list using GET `/api/imgs` as a JSON result
+* -> you can start the image processing API using GET `/api/img?n=[ImageName]&w=[width]&h=[height]`
 
 
 ------------------------------------------------------------------------------
