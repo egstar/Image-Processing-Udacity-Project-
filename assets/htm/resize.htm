@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Burham Soliman</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+</head>
+<body>
+  <div style="margin:auto;">
+   
+<nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+    <a class="navbar-brand" href="/">Burham Soliman</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/list">Images list</a>
+      </li>
+      <li class="active">
+        <a href="/resize">Read me</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+    <div class="jumbotron"  style="padding:40px;font-size:2rem;text-align:left;">
+      My APP Manual:<span> <ul><li>
+[SETUP]<ul><li>
+ you need to run the command `<strong>npm run build</strong>` to start building the app
+</li></ul></li>
+<li>
+[ Run server ]<ul><li>
+ you need to run the command `<strong>npm run start:prod</strong>` to start the live server.
+</li></ul></li>
+<li>
+[HOW TO USE]<ul><li>
+-> you can use the UI at <a href="http://localhost:3000" target="_self">http://localhost:3000</a> and then go to the Image's to choose which image you need to change it size.
+</li>
+<span style="text-align:center;margin:auto;">Or</span>
+<li>
+-> you can find the Images list using GET method at `/api/imgs` with a JSON response
+</li>
+<li>
+-> you can start the image processing API using GET method at `/api/img?n=[ImageName]&w=[width]&h=[height]`
+</li></ul></li>
+
+<br>
+<li>
+[ All tests had been passed using the unit testing Jasmin supertest ]
+<ul><li>
+to run test use the command `<strong>npm run test</strong>` and it will start the unit testing.
+</li></ul></li>
+<li>
+[ TypeScript files has been checked using esLint and Prettier ]
+<ul><li>
+to run the esLint check use the command ` <strong>npm run lint</strong> ` and to fix errors use ` npm run lint:f `
+</li></ul></li>
+<li>
+[DEVELOPER MODE]
+<ul><li>
+you need to run the command `<strong>npm run dev</strong>` to start the app in dev mode
+</li></ul></li></ul></span>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
