@@ -89,7 +89,7 @@ display:inline;
     fetchimgs().then(imgs =>{
       imgs.forEach(function(img) {
         img = img.split('.').slice(0,-1).join('.');
-        imglist[0].innerHTML += '<li class="imgList" id="'+img+'"><div class="imgName">'+img+'</div><div class="reTitle">[ Resize ]</div><div class="formData"><form action="/img"><input type="hidden" name="n" value="'+img+'" /><label for="w">width</label><input id="w" type="text" name="w" maxlenght="4" size="3" style="height:2rem;"/><form><label for="h">Height</label><input id="h" type="text" name="h" maxlenght="4" size="3" style="height:2rem;"/><input type="submit" value="Resize" /></form></div></li>';
+        imglist[0].innerHTML += '<li class="imgList" id="'+img+'"><div class="imgName">'+img+'</div><div class="reTitle">[ Resize ]</div><div class="formData"><form action="/api/img"><input type="hidden" name="n" value="'+img+'" /><label for="w">width</label><input id="w" type="text" name="w" maxlenght="4" size="3" style="height:2rem;"/><form><label for="h">Height</label><input id="h" type="text" name="h" maxlenght="4" size="3" style="height:2rem;"/><input type="submit" value="Resize" /></form></div></li>';
       })
       }); 
   </script>
