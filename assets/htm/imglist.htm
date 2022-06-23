@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Burham Soliman</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+  <style>
+    .imgList {
+      margin:auto;
+      display:block;
+      position:relative;
+      width:100%;
+      background:lightslategray;
+      border:2px solid powderblue;
+      border-radius:4px;
+      padding:1rem;
+      text-align:center;
+
+    }
+.mylist{
+  margin:auto;
+  display:grid;
+  position:relative;
+  background:lightgray;
+  width:50%;
+  padding:.5rem .5rem;
+  font-size:1rem;
+  border:1px solid powderblue;
+  border-radius:5px;
+  grid-gap:1rem;
+}
+.imgName{
+font-size:3rem;
+color:aliceblue;
+margin:auto;
+display:block;
+}
+.reTitle{
+margin:auto;
+text-align:center;
+font-size:1rem;
+display:inline;
+}
+.formData{
+  font-size:.75rem;
+  display:inline;
+
+}
+  </style>
+</head>
+<body>
+  <div style="margin:auto;">
+   
+<nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+    <a class="navbar-brand" href="/">Burham Soliman</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li class="active">
+        <a href="/list">Images list</a>
+      </li>
+      <li>
+        <a href="/resize">Read me</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+    <div class="jumbotron"  style="padding:40px;font-size:2rem;margin:auto;">
+      Here is a list of available image to try:
+      <ul class="imglist" style="padding:2rem 0 0 2rem;margin:auto;;">
+        <div class="mylist">
+
+        </div>
+      </ul>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script>
+    const imglist = document.getElementsByClassName('mylist');
+    async function fetchimgs() {
+      const response = await fetch('/api/imgs');
+      const imgs = await response.json();
+      return imgs;
+    }
+    fetchimgs().then(imgs =>{
+      imgs.forEach(function(img) {
+        img = img.split('.').slice(0,-1).join('.');
+        imglist[0].innerHTML += '<li class="imgList" id="'+img+'"><div class="imgName">'+img+'</div><div class="reTitle">[ Resize ]</div><div class="formData"><form action="/img"><input type="hidden" name="n" value="'+img+'" /><label for="w">width</label><input id="w" type="text" name="w" maxlenght="4" size="3" style="height:2rem;"/><form><label for="h">Height</label><input id="h" type="text" name="h" maxlenght="4" size="3" style="height:2rem;"/><input type="submit" value="Resize" /></form></div></li>';
+      })
+      }); 
+  </script>
+
+</body>
+</html>
