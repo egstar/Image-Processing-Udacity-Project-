@@ -1,5 +1,6 @@
 import { Router, Request, Response } from 'express';
 import path from 'path';
+import fs from 'fs';
 import filter from '../../utils/imgspath';
 import tnfilter from '../../utils/tnpath';
 import resizeImg from '../../utils/imgproc';
@@ -38,8 +39,12 @@ imgsRoute.get('/Api/img', (req: Request, res: Response) => {
   if (tn === true) {
     res.status(200).sendFile(tnp);
   } else {
-    // or create it if it's not exist, after checking the right width and height
-    
+    // Check the thumbnails dir
+  const thumbdir = path.resolve(__dirname, '../../../assets/tn/') as string;
+  if (!fs.existsSync(thumbdir)) {
+    fs.mkdirSync(thumbdir);
+  }
+    // or create it if it's not exist,
       resizeImg({
         fimgp,
         tnp,
