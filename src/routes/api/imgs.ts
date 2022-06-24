@@ -11,10 +11,10 @@ imgsRoute.get('/Api/img', (req: Request, res: Response) => {
   const h = req.query.h ? parseInt(req.query.h as string, 10) : null;
   const regEx = new RegExp('^' + imgName + '.+?[a-z]*$', 'igm'); // use regEX to find the equilivent file to search
   const fimg = filter.find((element) => element.match(regEx)) as string; // save image with extension as a string
-  const img = filter.includes(fimg); // get a boolean with true if img exists;
-  const tn = tnfilter.includes(w + 'x' + h + '-' + fimg);
-  const fimgp = path.resolve('./') + `/assets/org/${fimg}`; // set images location to retrieve later
-  const tnp = path.resolve('./') + `/assets/tn/${w}x${h}-${fimg}`; // set thumbnail location to retrieve later
+  const img = filter.includes(fimg) as boolean; // get a boolean with true if img exists
+  const tn = tnfilter.includes(w + 'x' + h + '-' + fimg) as boolean; //get a boolean with true if thumbnail exists
+  const fimgp = path.resolve('./') + `/assets/org/${fimg}` as string; // set images location to retrieve later
+  const tnp = path.resolve('./') + `/assets/tn/${w}x${h}-${fimg}` as string; // set thumbnail location to retrieve later
   // If the parameters wasn't provided return and end function
   if (!imgName) {
     return res
@@ -27,15 +27,19 @@ imgsRoute.get('/Api/img', (req: Request, res: Response) => {
     .status(404)
     .send('Resource not found, this image does not exist!');
   } else {
+    // if height and width not set returns error
   if (!h || !w) {
     res
       .status(404)
       .send('Please specify a correct Width and Height to process the image');
   }
+  if (h !== null && w !== null)
+  // if the Thumbnail already cached, return it instead of re-creating
   if (tn === true) {
     res.status(200).sendFile(tnp);
   } else {
-    if (h !== null && w !== null)
+    // or create it if it's not exist, after checking the right width and height
+    
       resizeImg({
         fimgp,
         tnp,
