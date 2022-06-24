@@ -23,8 +23,10 @@ imgsRoute.get('/Api/img', (req: Request, res: Response) => {
   }
   // If the name doesn't exist in the array return error and end function
   if (img === false) {
-    res.status(404).send('Resource not found, this image does not exist!');
-  }
+    res
+    .status(404)
+    .send('Resource not found, this image does not exist!');
+  } else {
   if (!h || !w) {
     res
       .status(404)
@@ -47,6 +49,7 @@ imgsRoute.get('/Api/img', (req: Request, res: Response) => {
           res.status(500).send('Internal server error while image processing.');
         });
   }
+}
   // else send the found image.
   // res.sendFile(fimgp);
 });
