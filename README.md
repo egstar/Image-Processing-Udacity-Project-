@@ -17,6 +17,8 @@ OR
 * -> you can find the Images list using GET `/api/imgs` as a JSON result
 * -> you can start the image processing API using GET `/api/img?n=[ImageName]&w=[width]&h=[height]`
 
+(p.s) use the image name without the file ext, for example : `/api/img?n=Desert&w=400&h=400`
+
 
 ------------------------------------------------------------------------------
 [ All tests had been passed using the unit testing Jasmin supertest ]
