@@ -7,16 +7,16 @@ import filter from '../utils/imgspath';
 const routes = Router();
 
 // set the Api Route
-routes.get('/', (_req: Request, res: Response) => {
+routes.get('/', (_req: Request, res: Response): void => {
   res.sendFile(path.join(__dirname, '../../assets/htm/index.htm'));
 });
 routes.get('/resize', aboutRoute);
 routes.get('/Api/img', imgsRoute);
 // set list route
-routes.get('/Api/imgs', (_req: Request, res: Response) => {
+routes.get('/Api/imgs', (_req: Request, res: Response): void => {
   res.send(filter);
 });
-routes.get('/list', (_req: Request, res: Response) => {
+routes.get('/list', (_req: Request, res: Response): void => {
   res.sendFile(path.join(__dirname, '../../assets/htm/imglist.htm'));
 });
 
