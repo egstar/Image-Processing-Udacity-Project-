@@ -26,6 +26,7 @@ OR
 
 [ TypeScript files has been checked using esLint and Prettier ]
 * to run the esLint check use the command ` npm run lint ` and to fix errors use ` npm run lint:f `
+* to run the prettier check use the commadn `npm run pret ` and to fix error use `npm run pret:f`
 
 [DEVELOPER MODE]
 * you need to run the command `npm run dev` to start the app in dev mode
