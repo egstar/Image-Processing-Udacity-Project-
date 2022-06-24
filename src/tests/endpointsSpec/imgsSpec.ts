@@ -2,6 +2,11 @@ import supertest from 'supertest';
 import app from '../../index';
 
 const request = supertest(app);
+describe('Testing the Image processing', () => {
+  it('Processing Image with 200x200 size successfuly', async () => {
+    await request.get(`/api/img?n=fjord&w=200&h=200`).expect(200);
+  });
+});
 
 describe('Testing the Api("IMG") endpoint', () => {
   it('Using the endpoint without providing the name parameter returns 400', async () => {
