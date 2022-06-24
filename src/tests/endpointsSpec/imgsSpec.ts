@@ -15,7 +15,7 @@ describe('Testing the Api("IMG") endpoint', () => {
     await request.get('/api/img?n=Desert&w=b&h=a').expect(404);
   });
   it('Using the endpoint with a valid img and width and height returns 200', async () => {
-    await request.get('/api/img?n=Desert&w=400&h=400').expect(200);
+    await request.get('/api/img?n=fjord&w=400&h=400').expect(200);
   });
 });
 
@@ -29,5 +29,3 @@ describe('Testing the ("list") endpoint', () => {
     await request.get('/list').expect(200);
   });
 });
-
-
