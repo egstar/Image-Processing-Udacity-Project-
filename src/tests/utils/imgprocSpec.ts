@@ -1,6 +1,7 @@
 import resizeImg from '../../utils/imgproc';
 import path from 'path';
 
+
 const fimgp = path.resolve(__dirname, '../../../assets/org/fjord.jpg');
 const tnp = path.resolve(__dirname, '../../../assets/tn/200x200-fjord.jpg');
 
