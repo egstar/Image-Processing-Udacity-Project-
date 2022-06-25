@@ -6,7 +6,7 @@ import tnfilter from '../../utils/tnpath';
 import resizeImg from '../../utils/imgproc';
 const imgsRoute = Router();
 
-imgsRoute.get('/Api/img', (req: Request, res: Response): any => {
+imgsRoute.get('/Api/img', (req: Request, res: Response): unknown => {
   const imgName = req.query.n as string; // use Query (n) to retrieve image's name
   const w = req.query.w ? parseInt(req.query.w as string, 10) : null;
   const h = req.query.h ? parseInt(req.query.h as string, 10) : null;
